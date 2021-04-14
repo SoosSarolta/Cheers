@@ -1,6 +1,5 @@
 package hu.bme.aut.cheers.data.network
 
-import android.util.Log
 import hu.bme.aut.cheers.domain.Coctail
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -46,8 +45,6 @@ class NetworkDataSource @Inject constructor(
     suspend fun listCoctailsByFirstLetter(firstLetter: String): List<Coctail> {
         var alcoholic: Boolean
         val ingredients: MutableList<String> = mutableListOf()
-
-        val a = coctailApi.listCoctailsByFirstLetter(firstLetter)
 
         return coctailApi.listCoctailsByFirstLetter(firstLetter).drinks.map { drink ->
             alcoholic = drink.strAlcoholic == "Alcoholic"
