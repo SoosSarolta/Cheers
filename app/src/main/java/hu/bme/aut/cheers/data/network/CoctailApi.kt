@@ -2,7 +2,6 @@ package hu.bme.aut.cheers.data.network
 
 import hu.bme.aut.cheers.data.network.model.DrinkWrapper
 import retrofit2.http.GET
-import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface CoctailApi {
@@ -22,6 +21,6 @@ interface CoctailApi {
      * @param f First letter for filtering
      * @return Call<DrinkWrapper>
      */
-    @GET("search.php?f={firstLetter}")
-    suspend fun listCoctailsByFirstLetter(@Path("firstLetter") firstLetter: String): DrinkWrapper
+    @GET("search.php")
+    suspend fun listCoctailsByFirstLetter(@Query("f") f: String): DrinkWrapper
 }

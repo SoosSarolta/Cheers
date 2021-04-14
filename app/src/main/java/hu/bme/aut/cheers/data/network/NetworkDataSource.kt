@@ -48,7 +48,6 @@ class NetworkDataSource @Inject constructor(
         val ingredients: MutableList<String> = mutableListOf()
 
         val a = coctailApi.listCoctailsByFirstLetter(firstLetter)
-        Log.i("ASD", a.toString())
 
         return coctailApi.listCoctailsByFirstLetter(firstLetter).drinks.map { drink ->
             alcoholic = drink.strAlcoholic == "Alcoholic"
