@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Cheers</string>
+    <string name="ingredients">Ingredients:</string>
+    <string name="instructions">Instructions:</string>
+    <string name="all_rights_reserved">All rights reserved</string>
+    <string name="creator_name">Sarolta Soos</string>
+    <string name="app_version">App version v1.0</string>
 </resources>

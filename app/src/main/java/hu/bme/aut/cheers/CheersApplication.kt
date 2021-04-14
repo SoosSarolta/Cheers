@@ -15,7 +15,9 @@ class CheersApplication : RainbowCakeApplication() {
     override lateinit var injector: AppComponent
 
     override fun setupInjector() {
-        injector = DaggerAppComponent.create()
+        injector = DaggerAppComponent.builder()
+            .applicationModule(ApplicationModule(this))
+            .build()
     }
 
     override fun onCreate() {
