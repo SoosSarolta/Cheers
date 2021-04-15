@@ -12,9 +12,18 @@ class ListViewModel @Inject constructor(
        viewState = Loading
        viewState = try {
            val items = listPresenter.loadCoctailsByFirstLetter(firstLetter)
+
+           for (coctail in items) {
+               listPresenter.saveCoctailItem(coctail.id)
+           }
+
            ListReady(items)
        } catch (e: IOException) {
            NetworkError
        }
+   }
+
+    fun deleteCoctailFromLocalDatabase(coctailId: String) = execute {
+        listPresenter.deleteCoctailItem(coctailId)
     }
 }

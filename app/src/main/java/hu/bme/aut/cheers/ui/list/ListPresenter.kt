@@ -22,6 +22,14 @@ class ListPresenter @Inject constructor(
         }
     }
 
+    suspend fun saveCoctailItem(coctailId: String) = withIOContext {
+        coctailsInteractor.saveCoctail(coctailId)
+    }
+
+    suspend fun deleteCoctailItem(coctailId: String) = withIOContext {
+        coctailsInteractor.removeSavedCoctailById(coctailId)
+    }
+
     data class CoctailItem(
         val id: String,
         val name: String,

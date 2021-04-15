@@ -39,7 +39,7 @@ class ListFragment : RainbowCakeFragment<ListViewState, ListViewModel>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        coctailsAdapter = CoctailsAdapter(requireContext(), ::onCoctailClicked)
+        coctailsAdapter = CoctailsAdapter(requireContext(), ::onCoctailClicked, ::onCoctailLongClicked)
         recyclerView.adapter = coctailsAdapter
         recyclerView.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
 
@@ -95,6 +95,19 @@ class ListFragment : RainbowCakeFragment<ListViewState, ListViewModel>() {
 
     private fun onCoctailClicked(coctail: ListPresenter.CoctailItem) {
         navigator?.add(DetailsFragment.newInstance(coctail.id))
+    }
+
+    private fun onCoctailLongClicked(coctail: ListPresenter.CoctailItem): Boolean {
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle("Do you really want to delete this coctail from DB?")
+            .setPositiveButton("Delete") { dialog, _ ->
+                dialog.dismiss()
+                viewModel.deleteCoctailFromLocalDatabase(coctail.id)
+            }
+            .setNegativeButton("Cancel") { dialog, _ ->
+                dialog.dismiss()
+            }
+        return true
     }
 
     private fun showNetworkError() {

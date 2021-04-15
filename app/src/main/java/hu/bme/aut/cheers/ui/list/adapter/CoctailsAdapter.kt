@@ -14,7 +14,11 @@ import hu.bme.aut.cheers.ui.list.CoctailItemComparator
 import hu.bme.aut.cheers.ui.list.ListPresenter
 import kotlinx.android.synthetic.main.item_coctail.view.*
 
-class CoctailsAdapter(private val context: Context, val clickListener: (ListPresenter.CoctailItem) -> Unit) : ListAdapter<ListPresenter.CoctailItem, CoctailsAdapter.ViewHolder>(CoctailItemComparator) {
+class CoctailsAdapter(
+    private val context: Context,
+    val clickListener: (ListPresenter.CoctailItem) -> Unit,
+    val longClickListener: (ListPresenter.CoctailItem) -> Boolean
+) : ListAdapter<ListPresenter.CoctailItem, CoctailsAdapter.ViewHolder>(CoctailItemComparator) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CoctailsAdapter.ViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.item_coctail, parent, false)
@@ -25,7 +29,7 @@ class CoctailsAdapter(private val context: Context, val clickListener: (ListPres
         holder.bind(getItem(position))
     }
 
-    inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private var coctailName: TextView = itemView.coctailName
         private var coctailType: TextView = itemView.coctailType
         private var coctailImage: ImageView = itemView.coctailThumbnail
@@ -35,6 +39,9 @@ class CoctailsAdapter(private val context: Context, val clickListener: (ListPres
         init {
             itemView.setOnClickListener {
                 clickListener(coctail!!)
+            }
+            itemView.setOnLongClickListener {
+                longClickListener(coctail!!)
             }
         }
 
