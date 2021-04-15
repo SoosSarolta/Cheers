@@ -69,7 +69,7 @@ class DetailsFragment : RainbowCakeFragment<DetailsViewState, DetailsViewModel>(
         coctailName.text = coctail.name
         coctailType.text = coctail.type
         coctailAlcoholicFlag.text = if (coctail.alcoholic) "Alcoholic" else "Non-alcoholic"
-        coctailInstructions.text = coctail.instructions
+        coctailInstructionsData.text = coctail.instructions
 
         val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, coctail.ingredients)
         ingredientsList.adapter = adapter
