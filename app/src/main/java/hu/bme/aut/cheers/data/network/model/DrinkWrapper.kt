@@ -1,5 +1,8 @@
 package hu.bme.aut.cheers.data.network.model
 
-data class DrinkWrapper(
+import com.squareup.moshi.JsonClass
+
+@JsonClass(generateAdapter = true)
+class DrinkWrapper(
     val drinks: List<Drink>
 )

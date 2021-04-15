@@ -1,6 +1,9 @@
 package hu.bme.aut.cheers.data.network.model
 
-data class Drink(
+import com.squareup.moshi.JsonClass
+
+@JsonClass(generateAdapter = true)
+class Drink(
         val idDrink: String,
         val strDrink: String,
         val strDrinkAlternate: String,
