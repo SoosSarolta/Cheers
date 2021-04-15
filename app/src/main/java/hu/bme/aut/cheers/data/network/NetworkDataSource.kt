@@ -14,30 +14,30 @@ class NetworkDataSource @Inject constructor(
 
         return coctailApi.findCoctailById(id).drinks.let { drinks ->
             alcoholic = drinks[0].strAlcoholic == "Alcoholic"
-            ingredients.add(drinks[0].strIngredient1)
-            ingredients.add(drinks[0].strIngredient2)
-            ingredients.add(drinks[0].strIngredient3)
-            ingredients.add(drinks[0].strIngredient4)
-            ingredients.add(drinks[0].strIngredient5)
-            ingredients.add(drinks[0].strIngredient6)
-            ingredients.add(drinks[0].strIngredient7)
-            ingredients.add(drinks[0].strIngredient8)
-            ingredients.add(drinks[0].strIngredient9)
-            ingredients.add(drinks[0].strIngredient10)
-            ingredients.add(drinks[0].strIngredient11)
-            ingredients.add(drinks[0].strIngredient12)
-            ingredients.add(drinks[0].strIngredient13)
-            ingredients.add(drinks[0].strIngredient14)
-            ingredients.add(drinks[0].strIngredient15)
+            ingredients.add(drinks[0].strIngredient1.toString())
+            ingredients.add(drinks[0].strIngredient2.toString())
+            ingredients.add(drinks[0].strIngredient3.toString())
+            ingredients.add(drinks[0].strIngredient4.toString())
+            ingredients.add(drinks[0].strIngredient5.toString())
+            ingredients.add(drinks[0].strIngredient6.toString())
+            ingredients.add(drinks[0].strIngredient7.toString())
+            ingredients.add(drinks[0].strIngredient8.toString())
+            ingredients.add(drinks[0].strIngredient9.toString())
+            ingredients.add(drinks[0].strIngredient10.toString())
+            ingredients.add(drinks[0].strIngredient11.toString())
+            ingredients.add(drinks[0].strIngredient12.toString())
+            ingredients.add(drinks[0].strIngredient13.toString())
+            ingredients.add(drinks[0].strIngredient14.toString())
+            ingredients.add(drinks[0].strIngredient15.toString())
 
             Coctail(
                 id = drinks[0].idDrink,
-                name = drinks[0].strDrink,
-                type = drinks[0].strCategory,
-                thumbnailUrl = drinks[0].strDrinkThumb,
+                name = drinks[0].strDrink.toString(),
+                type = drinks[0].strCategory.toString(),
+                thumbnailUrl = drinks[0].strDrinkThumb.toString(),
                 alcoholic = alcoholic,
                 ingredients = ingredients,
-                instructions = drinks[0].strInstructions
+                instructions = drinks[0].strInstructions.toString()
             )
         }
     }
@@ -48,30 +48,30 @@ class NetworkDataSource @Inject constructor(
 
         return coctailApi.listCoctailsByFirstLetter(firstLetter).drinks.map { drink ->
             alcoholic = drink.strAlcoholic == "Alcoholic"
-            ingredients.add(drink.strIngredient1)
-            ingredients.add(drink.strIngredient2)
-            ingredients.add(drink.strIngredient3)
-            ingredients.add(drink.strIngredient4)
-            ingredients.add(drink.strIngredient5)
-            ingredients.add(drink.strIngredient6)
-            ingredients.add(drink.strIngredient7)
-            ingredients.add(drink.strIngredient8)
-            ingredients.add(drink.strIngredient9)
-            ingredients.add(drink.strIngredient10)
-            ingredients.add(drink.strIngredient11)
-            ingredients.add(drink.strIngredient12)
-            ingredients.add(drink.strIngredient13)
-            ingredients.add(drink.strIngredient14)
-            ingredients.add(drink.strIngredient15)
+            ingredients.add(drink.strIngredient1.toString())
+            ingredients.add(drink.strIngredient2.toString())
+            ingredients.add(drink.strIngredient3.toString())
+            ingredients.add(drink.strIngredient4.toString())
+            ingredients.add(drink.strIngredient5.toString())
+            ingredients.add(drink.strIngredient6.toString())
+            ingredients.add(drink.strIngredient7.toString())
+            ingredients.add(drink.strIngredient8.toString())
+            ingredients.add(drink.strIngredient9.toString())
+            ingredients.add(drink.strIngredient10.toString())
+            ingredients.add(drink.strIngredient11.toString())
+            ingredients.add(drink.strIngredient12.toString())
+            ingredients.add(drink.strIngredient13.toString())
+            ingredients.add(drink.strIngredient14.toString())
+            ingredients.add(drink.strIngredient15.toString())
 
             Coctail(
                 id = drink.idDrink,
-                name = drink.strDrink,
-                type = drink.strCategory,
-                thumbnailUrl = drink.strDrinkThumb,
+                name = drink.strDrink.toString(),
+                type = drink.strCategory.toString(),
+                thumbnailUrl = drink.strDrinkThumb.toString(),
                 alcoholic = alcoholic,
                 ingredients = ingredients,
-                instructions = drink.strInstructions
+                instructions = drink.strInstructions.toString()
             )
         }
 

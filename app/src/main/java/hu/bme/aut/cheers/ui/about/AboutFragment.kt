@@ -78,10 +78,10 @@ class AboutFragment : RainbowCakeFragment<AboutViewState, AboutViewModel>() {
     }
 
     private fun menuItemClicked(title: String): (View?) -> Boolean = {
-        /*if (title == "List")
-            // TODO
+        if (title == "List")
+            navigator?.add(ListFragment())
         if (title == "About")
-            // TODO*/
+            navigator?.add(AboutFragment())
         false
     }
 }
