@@ -50,7 +50,7 @@ class ListFragment : RainbowCakeFragment<ListViewState, ListViewModel>() {
 
             drawerHeader = accountHeader {
                 savedInstance = savedInstanceState
-                translucentStatusBar = true
+                translucentStatusBar = false
                 profile("Test User", "test@test.hu")
             }
 
@@ -68,8 +68,8 @@ class ListFragment : RainbowCakeFragment<ListViewState, ListViewModel>() {
         }
     }
 
-    override fun onStart() {
-        super.onStart()
+    override fun onResume() {
+        super.onResume()
         viewModel.loadCoctailsByFirstLetter(firstLetter)
     }
 

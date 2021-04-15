@@ -8,6 +8,7 @@ class AboutViewModel @Inject constructor(
 ) : RainbowCakeViewModel<AboutViewState>(Loading) {
 
     fun getInfo() {
-        // not necessary - static page
+        viewState = Loading
+        viewState = InfoReady("ready")
     }
 }

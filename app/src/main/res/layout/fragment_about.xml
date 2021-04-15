@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,10 +10,10 @@
         android:id="@+id/progressBar"
         android:layout_width="64dp"
         android:layout_height="64dp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/aboutLayout"
@@ -25,68 +24,68 @@
             android:id="@+id/logoImage"
             android:layout_width="match_parent"
             android:layout_height="300dp"
+            android:src="@drawable/coctails_logo"
             app:layout_constraintTop_toTopOf="parent"
-            tools:src="@tools:sample/backgrounds/scenic"
             tools:ignore="ContentDescription" />
 
         <TextView
             android:id="@+id/creatorName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/logoImage"
             android:layout_marginTop="30dp"
             android:gravity="center"
-            android:textStyle="bold"
             android:textColor="@color/black"
             android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/logoImage"
             tools:text="App Creator" />
 
         <TextView
             android:id="@+id/otherInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/creatorName"
             android:layout_marginTop="12dp"
             android:gravity="center"
-            android:textStyle="bold"
+            android:text="@string/other_infos"
             android:textColor="@color/black"
             android:textSize="18sp"
-            tools:text="Other infos" />
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/creatorName" />
 
         <TextView
             android:id="@+id/appVersion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/otherInfo"
             android:layout_marginTop="30dp"
             android:gravity="center"
-            android:textStyle="bold"
             android:textColor="@color/black"
             android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/otherInfo"
             tools:text="App version" />
 
         <TextView
             android:id="@+id/rightsText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/appVersion"
             android:layout_marginTop="8dp"
             android:gravity="center"
-            android:textStyle="bold"
+            android:text="@string/all_rights_reserved"
             android:textColor="@color/black"
             android:textSize="16sp"
-            android:text="@string/all_rights_reserved" />
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/appVersion" />
 
         <TextView
             android:id="@+id/date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/rightsText"
             android:layout_marginTop="8dp"
             android:gravity="center"
-            android:textStyle="bold"
             android:textColor="@color/black"
             android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/rightsText"
             tools:text="2021-04-13" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

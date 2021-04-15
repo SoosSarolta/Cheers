@@ -41,7 +41,7 @@ class AboutFragment : RainbowCakeFragment<AboutViewState, AboutViewModel>() {
 
             drawerHeader = accountHeader {
                 savedInstance = savedInstanceState
-                translucentStatusBar = true
+                translucentStatusBar = false
                 profile("Test User", "test@test.hu")
             }
 
@@ -57,6 +57,11 @@ class AboutFragment : RainbowCakeFragment<AboutViewState, AboutViewModel>() {
                 onClick(menuItemClicked("About"))
             }
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.getInfo()
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
