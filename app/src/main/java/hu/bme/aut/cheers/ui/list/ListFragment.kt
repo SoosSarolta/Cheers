@@ -106,7 +106,7 @@ class ListFragment : RainbowCakeFragment<ListViewState, ListViewModel>() {
             }
             .setNegativeButton("Cancel") { dialog, _ ->
                 dialog.dismiss()
-            }
+            }.show()
         return true
     }
 
@@ -119,7 +119,7 @@ class ListFragment : RainbowCakeFragment<ListViewState, ListViewModel>() {
             }
             .setNegativeButton("Cancel") { dialog, _ ->
                 dialog.dismiss()
-            }
+            }.show()
     }
 
     private fun menuItemClicked(title: String): (View?) -> Boolean = {
