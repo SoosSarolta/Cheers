@@ -10,4 +10,4 @@ import javax.inject.Singleton
         MockNetworkModule::class,
     ]
 )
-class TestComponent
+interface TestComponent
