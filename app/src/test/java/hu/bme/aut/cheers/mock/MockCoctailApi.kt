@@ -12,7 +12,7 @@ class MockCoctailApi : CoctailApi {
         return DrinkWrapper(
             drinks = listOf(
                 Drink(
-                    idDrink = "1",
+                    idDrink = i,
                     strDrink = "Test Drink",
                     strDrinkAlternate = null,
                     strTags = "Test",
