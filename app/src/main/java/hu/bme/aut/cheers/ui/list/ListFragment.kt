@@ -27,7 +27,7 @@ import kotlinx.android.synthetic.main.fragment_list.*
 class ListFragment : RainbowCakeFragment<ListViewState, ListViewModel>() {
 
     private lateinit var coctailsAdapter: CoctailsAdapter
-    private var firstLetter = "y"
+    private var firstLetter = "m"
 
     private lateinit var navDrawer: Drawer
     private lateinit var drawerHeader: AccountHeader
