@@ -15,6 +15,10 @@ import co.zsmb.rainbowcake.dagger.getViewModelFromFactory
 import co.zsmb.rainbowcake.extensions.exhaustive
 import co.zsmb.rainbowcake.navigation.navigator
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.analytics.ktx.logEvent
+import com.google.firebase.ktx.Firebase
 import com.mikepenz.iconics.typeface.library.googlematerial.GoogleMaterial
 import com.mikepenz.materialdrawer.AccountHeader
 import com.mikepenz.materialdrawer.Drawer
@@ -25,6 +29,8 @@ import hu.bme.aut.cheers.ui.list.adapter.CoctailsAdapter
 import kotlinx.android.synthetic.main.fragment_list.*
 
 class ListFragment : RainbowCakeFragment<ListViewState, ListViewModel>() {
+
+    private lateinit var firebaseAnalytics: FirebaseAnalytics
 
     private lateinit var coctailsAdapter: CoctailsAdapter
     private var firstLetter = "m"
@@ -38,6 +44,8 @@ class ListFragment : RainbowCakeFragment<ListViewState, ListViewModel>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        firebaseAnalytics = Firebase.analytics
 
         coctailsAdapter = CoctailsAdapter(requireContext(), ::onCoctailClicked, ::onCoctailLongClicked)
         recyclerView.adapter = coctailsAdapter
@@ -84,6 +92,10 @@ class ListFragment : RainbowCakeFragment<ListViewState, ListViewModel>() {
                 coctailsAdapter.submitList(viewState.result)
                 progressBar.isVisible = false
                 recyclerView.isVisible = true
+
+                firebaseAnalytics.logEvent("coctails_ready") {
+                    param("coctails_first_letter", firstLetter)
+                }
             }
             NetworkError -> {
                 progressBar.isVisible = false

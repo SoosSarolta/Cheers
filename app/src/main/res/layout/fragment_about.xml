@@ -88,6 +88,16 @@
             app:layout_constraintTop_toBottomOf="@id/rightsText"
             tools:text="2021-04-13" />
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/testCrashBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/test_crash"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/date" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

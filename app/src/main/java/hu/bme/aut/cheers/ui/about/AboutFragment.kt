@@ -20,6 +20,7 @@ import com.mikepenz.materialdrawer.Drawer
 import hu.bme.aut.cheers.R
 import hu.bme.aut.cheers.ui.list.ListFragment
 import kotlinx.android.synthetic.main.fragment_about.*
+import java.lang.RuntimeException
 import java.time.LocalDateTime
 
 class AboutFragment : RainbowCakeFragment<AboutViewState, AboutViewModel>() {
@@ -56,6 +57,10 @@ class AboutFragment : RainbowCakeFragment<AboutViewState, AboutViewModel>() {
                 iicon = GoogleMaterial.Icon.gmd_info
                 onClick(menuItemClicked("About"))
             }
+        }
+
+        testCrashBtn.setOnClickListener {
+            throw RuntimeException("Test Crash")
         }
     }
 

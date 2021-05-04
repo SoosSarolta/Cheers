@@ -11,10 +11,16 @@ import co.zsmb.rainbowcake.navigation.extensions.applyArgs
 import co.zsmb.rainbowcake.navigation.extensions.requireString
 import com.bumptech.glide.Glide
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.analytics.ktx.logEvent
+import com.google.firebase.ktx.Firebase
 import hu.bme.aut.cheers.R
 import kotlinx.android.synthetic.main.fragment_details.*
 
 class DetailsFragment : RainbowCakeFragment<DetailsViewState, DetailsViewModel>() {
+
+    private lateinit var firebaseAnalytics: FirebaseAnalytics
 
     companion object {
         private const val COCTAIL_ID = "COCTAIL_ID"
@@ -34,6 +40,9 @@ class DetailsFragment : RainbowCakeFragment<DetailsViewState, DetailsViewModel>(
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        firebaseAnalytics = Firebase.analytics
+
         initArgs()
     }
 
@@ -52,6 +61,10 @@ class DetailsFragment : RainbowCakeFragment<DetailsViewState, DetailsViewModel>(
                 fillDetails(viewState.result)
                 progressBar.isVisible = false
                 detailsLayout.isVisible = true
+
+                firebaseAnalytics.logEvent("coctail_details_ready") {
+                    param("coctail_name", viewState.result.name)
+                }
             }
             NetworkError -> {
                 progressBar.isVisible = false
